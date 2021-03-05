@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <Name value="No Relation" />
+  <Id value="NoRelation" />
+  <Version value="v$version$" />
+  <Official value="false" />
+  <DefaultModule value="false" />
+  <SingleplayerModule value="true" />
+  <MultiplayerModule value="false" />
+  <DependedModules>
+    <DependedModule Id="Native" DependentVersion="e1.5.7" />
+  </DependedModules>
+  <SubModules>
+    <SubModule>
+      <Name value="NoRelation" />
+      <DLLName value="Int19h.Bannerlord.NoRelation.dll" />
+      <SubModuleClassType value="Int19h.Bannerlord.NoRelation.SubModule" />
+      <Tags />
+    </SubModule>
+  </SubModules>
+</Module>

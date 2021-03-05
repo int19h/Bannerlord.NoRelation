@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+    <TargetFramework>net472</TargetFramework>
+    <Platforms>x64</Platforms>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ModuleName>$(MSBuildProjectName)</ModuleName>
+    <GameFolder>$(BANNERLORD_GAME_DIR)</GameFolder>
+    <GameFolder Condition="'$(GameFolder)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</GameFolder>
+    <AssemblyName>Int19h.Bannerlord.NoRelation</AssemblyName>
+    <RootNamespace>Int19h.Bannerlord.NoRelation</RootNamespace>
+    <Authors>Pavel Minaev</Authors>
+    <Company>Pavel Minaev</Company>
+    <Product>No Relation</Product>
+    <Copyright>Copyright © 2021 Pavel "int19h" Minaev</Copyright>
+    <Description>https://github.com/int19h/Bannerlord.NoRelation</Description>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/int19h/Bannerlord.NoRelation</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/int19h/Bannerlord.NoRelation</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Core.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Core.ViewModelCollection.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Engine.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Library.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Localization.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\Modules\Native\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.GauntletUI.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bannerlord.BuildResources" Version="1.0.0.33">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+</Project>
