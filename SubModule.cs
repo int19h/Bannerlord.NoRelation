@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using TaleWorlds.Core;
 using TaleWorlds.Core.ViewModelCollection;
+using TaleWorlds.Core.ViewModelCollection.Information;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.MountAndBlade.GauntletUI;
@@ -24,26 +25,26 @@ namespace Int19h.Bannerlord.NoRelation {
                 return;
             }
 
-            var gnm = GameNotificationManager.Current;
+            var gnm = GauntletGameNotification.Current;
             if (gnm is null) {
-                NotSupported("GameNotificationManager.Current is null");
+                NotSupported("GauntletGameNotification.Current is null");
                 return;
             }
 
-            var dataSourceField = gnm.GetType().GetField("_dataSource", BindingFlags.NonPublic | BindingFlags.Static);
+            var dataSourceField = gnm.GetType().GetField("_dataSource", BindingFlags.NonPublic | BindingFlags.Instance);
             if (dataSourceField is null) {
-                NotSupported("GameNotificationManager._dataSource is missing");
+                NotSupported("GauntletGameNotification._dataSource is missing");
                 return;
             }
 
-            var gnvm = dataSourceField.GetValue(null) as GameNotificationVM;
+            var gnvm = dataSourceField.GetValue(gnm) as GameNotificationVM;
             if (gnvm is null) {
-                NotSupported("GameNotificationManager._dataSource has invalid type");
+                NotSupported("GauntletGameNotification._dataSource has invalid type");
                 return;
             }
 
-            InformationManager.FiringQuickInformation -= gnvm.AddGameNotification;
-            InformationManager.FiringQuickInformation += (string notificationText, int extraTimeInMs, BasicCharacterObject announcerCharacter, string soundId) => {
+            MBInformationManager.FiringQuickInformation -= gnvm.AddGameNotification;
+            MBInformationManager.FiringQuickInformation += (string notificationText, int extraTimeInMs, BasicCharacterObject announcerCharacter, string soundId) => {
                 if (soundId == "event:/ui/notification/relation") {
                     Print(notificationText, new Color(0.5f, 0.6f, 0.6f));
                 } else {

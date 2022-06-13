@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <TargetFramework>net472</TargetFramework>
     <Platforms>x64</Platforms>
     <LangVersion>9.0</LangVersion>
@@ -14,7 +14,7 @@
     <Authors>Pavel Minaev</Authors>
     <Company>Pavel Minaev</Company>
     <Product>No Relation</Product>
-    <Copyright>Copyright © 2021 Pavel "int19h" Minaev</Copyright>
+    <Copyright>Copyright © 2021-2022 Pavel "int19h" Minaev</Copyright>
     <Description>https://github.com/int19h/Bannerlord.NoRelation</Description>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/int19h/Bannerlord.NoRelation</PackageProjectUrl>
@@ -43,6 +43,10 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.dll">
+      <HintPath>%(Identity)</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.ScreenSystem.dll">
       <HintPath>%(Identity)</HintPath>
       <Private>False</Private>
     </Reference>
